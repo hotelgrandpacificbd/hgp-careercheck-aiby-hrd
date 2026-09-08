@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HGP CareerCheck AI by HRD</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-container">
+    <header class="app-header">
+      <div class="brand">
+        <h1>HGP CareerCheck AI</h1>
+        <span class="sub-brand">by HRD</span>
+      </div>
+      <div id="timer-badge" class="timer-badge hidden">05:00</div>
+    </header>
+
+    <!-- STEP 1: SETUP -->
+    <section id="setup-screen" class="screen active">
+      <div class="card intro-card">
+        <h2>Hotel Job Interview Simulator</h2>
+        <p>Take a 5-minute AI interview in <strong>English, Bangla, or Banglish</strong>.</p>
+        
+        <form id="setup-form">
+          <div class="form-group">
+            <label for="department">Select Department</label>
+            <select id="department" required>
+              <option value="" disabled selected>Choose Department...</option>
+              <option value="Front Office">Front Office</option>
+              <option value="GSA">GSA (Guest Service Agent)</option>
+              <option value="Reservation">Reservation</option>
+              <option value="Sales & Marketing">Sales & Marketing</option>
+              <option value="F&B Service">F&B Service</option>
+              <option value="F&B Production">F&B Production (Kitchen)</option>
+              <option value="Housekeeping">Housekeeping</option>
+              <option value="Engineering">Engineering & Maintenance</option>
+              <option value="Accounts & Finance">Accounts & Finance</option>
+              <option value="Purchase">Purchase</option>
+              <option value="Store">Store</option>
+              <option value="Security">Security</option>
+              <option value="Recreation">Recreation & Spa</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="position">Target Position</label>
+            <input type="text" id="position" placeholder="e.g. Front Desk Agent, Waiter, Executive Chef" required>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Start 5-Min Interview</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- STEP 2: INTERVIEW CHAT -->
+    <section id="interview-screen" class="screen">
+      <div class="chat-container">
+        <div id="chat-box" class="chat-box"></div>
+
+        <div id="typing-indicator" class="typing-indicator hidden">
+          <span>AI is thinking</span>
+          <div class="dots">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+          </div>
+        </div>
+
+        <form id="chat-form" class="chat-form">
+          <input type="text" id="user-input" placeholder="Type answer in English, Bangla, or Banglish..." autocomplete="off" required>
+          <button type="submit" id="send-btn" class="btn btn-send">Send</button>
+        </form>
+        <button id="end-interview-btn" class="btn btn-secondary btn-sm">Finish Early & See Results</button>
+      </div>
+    </section>
+
+    <!-- STEP 3: LOADING RESULT -->
+    <section id="loading-screen" class="screen">
+      <div class="loader-card">
+        <div class="spinner"></div>
+        <h2>Analyzing Your Interview...</h2>
+        <p>Evaluating communication, hospitality mindset, technical depth, and situational responses.</p>
+      </div>
+    </section>
+
+    <!-- STEP 4: DETAILED RESULTS -->
+    <section id="result-screen" class="screen">
+      <div class="card result-card">
+        <div class="result-header">
+          <div class="badge-rec" id="rec-badge">RECOMMENDATION</div>
+          <h2 id="overall-score">0 / 100</h2>
+          <p id="career-readiness" class="readiness-text">Career Readiness Status</p>
+        </div>
+
+        <div class="section-block">
+          <h3>Assessment Summary</h3>
+          <p id="assessment-summary" class="summary-text"></p>
+        </div>
+
+        <div class="section-block">
+          <h3>Competency Breakdown</h3>
+          <div id="competencies-list" class="competencies-grid"></div>
+        </div>
+
+        <div class="section-grid">
+          <div class="section-block">
+            <h3>Strengths</h3>
+            <ul id="strengths-list" class="tag-list positive"></ul>
+          </div>
+
+          <div class="section-block">
+            <h3>Areas to Improve</h3>
+            <ul id="improve-list" class="tag-list warning"></ul>
+          </div>
+        </div>
+
+        <div class="section-block">
+          <h3>Best-Fit Hotel Roles</h3>
+          <div id="roles-list" class="role-tags"></div>
+        </div>
+
+        <div class="disclaimer">
+          <p><em>Disclaimer: This assessment is an AI-driven simulation designed for self-improvement and practice. It does not guarantee employment and does not evaluate personal characteristics.</em></p>
+        </div>
+
+        <button onclick="window.location.reload()" class="btn btn-primary">Retake Interview</button>
+      </div>
+    </section>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

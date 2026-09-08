@@ -1,0 +1,14 @@
+{
+  "name": "hgp-careercheck-ai",
+  "version": "1.0.0",
+  "description": "5-minute AI Hotel Job Interview Simulator",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "@google/genai": "^0.1.1",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2"
+  }
+}
